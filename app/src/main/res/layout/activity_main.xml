@@ -5,14 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <TextView
+        android:id="@+id/tvDataHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Display all the items grouped by 'listId' Sort the results first by 'listId' then by 'name' when displaying."
+        android:fontFamily="sans-serif"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnAllResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:layout_marginVertical="10dp"
+        android:text="Show All Results"
+        android:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="@id/tvDataHead"
+        app:layout_constraintEnd_toEndOf="@id/tvDataHead"
+        app:layout_constraintTop_toBottomOf="@id/tvDataHead"
+        />
+    <TextView
+        android:id="@+id/tvFilterHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Filter out any items where 'name' is blank or null."
+        android:fontFamily="sans-serif"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAllResults"
+        />
+    <Button
+        android:id="@+id/btnFilteredResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginVertical="10dp"
+        android:text="Filter Results"
+        android:fontFamily="monospace"
+        app:layout_constraintStart_toStartOf="@id/tvFilterHead"
+        app:layout_constraintEnd_toEndOf="@id/tvFilterHead"
+        app:layout_constraintTop_toBottomOf="@id/tvFilterHead"
+        />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFilteredResults"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
