@@ -8,5 +8,5 @@ import retrofit2.http.GET
 
 interface RetrofitAPI {
     @GET("hiring.json")
-    fun getAllItems(): Call<List<Items>>
+    fun getAllItems(): Call<ArrayList<Items>>
 }
